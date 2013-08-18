@@ -1,11 +1,11 @@
-Name:		libkdegames
 Summary:	KDE games library
+Name:		libkdegames
 Version:	4.11.0
 Release:	1
 Epoch:		1
 Group:		Graphical desktop/KDE
 License:	GPLv2 and LGPLv2 and GFDL
-URL:		http://games.kde.org/
+Url:		http://games.kde.org/
 Source:		ftp://ftp.kde.org/pub/kde/stable/%{version}/src/%{name}-%{version}.tar.xz
 BuildRequires:	kdelibs4-devel
 BuildRequires:	pkgconfig(openal)
@@ -18,6 +18,7 @@ This packages provides common code and data for many KDE games.
 
 %package common
 Summary:	Common files needed by KDE games
+Group:		Graphical desktop/KDE
 BuildArch:	noarch
 Obsoletes:	kdegames4-core < 1:4.9.80
 
@@ -28,6 +29,20 @@ for KDE cardgames.
 %files common
 %{_kde_appsdir}/carddecks/
 %{_kde_appsdir}/kconf_update/kgthemeprovider-migration.upd
+
+#-------------------------------------------------------------------------------
+
+%package corebindings
+Summary:	Qml plugins for KDE games
+Group:		Graphical desktop/KDE
+
+%description corebindings
+Qml plugins for KDE games.
+
+%files corebindings
+%{_kde_libdir}/kde4/imports/org/kde/games/core/KgItem.qml
+%{_kde_libdir}/kde4/imports/org/kde/games/core/libcorebindingsplugin.so
+%{_kde_libdir}/kde4/imports/org/kde/games/core/qmldir
 
 #-------------------------------------------------------------------------------
 
@@ -99,6 +114,7 @@ Headers files needed to build applications based on KDE games library.
 %changelog
 * Wed Aug 14 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.11.0-1
 - New version 4.11.0
+- New subpackage corebindings
 
 * Wed Jul 03 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.10.5-1
 - New version 4.10.5
