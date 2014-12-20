@@ -1,7 +1,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 Summary:	KDE games library
 Name:		libkdegames
-Version:	14.11.97
+Version:	14.12.0
 Release:	1
 Epoch:		1
 Group:		Graphical desktop/KDE
@@ -113,8 +113,8 @@ Headers files needed to build applications based on KDE games library.
 %makeinstall_std -C build
 
 %changelog
-* Tue Nov 11 2014 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:14.11.97-1
-- New version 14.11.97
+* Tue Nov 11 2014 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:14.12.0-1
+- New version 14.12.0
 
 * Wed Oct 15 2014 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.14.2-1
 - New version 4.14.2
