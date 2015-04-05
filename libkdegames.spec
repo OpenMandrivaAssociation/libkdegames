@@ -88,7 +88,7 @@ Obsoletes:	%{mklibname kdegames 6} < %{EVRD}
 Runtime Library for KDE games.
 
 %files -n %{libkdegames}
-%{_kde_libdir}/libKF5KDEGames.so.%{libkdegames_major}*
+%{_libdir}/libKF5KDEGames.so.%{libkdegames_major}*
 
 #-------------------------------------------------------------------------------
 
