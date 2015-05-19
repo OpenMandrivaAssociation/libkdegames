@@ -1,13 +1,13 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 Summary:	KDE games library
 Name:		libkdegames
-Version:	15.04.0
+Version:	15.04.1
 Release:	1
 Epoch:		1
 Group:		Graphical desktop/KDE
 License:	GPLv2 and LGPLv2 and GFDL
 Url:		http://games.kde.org/
-Source0:	ftp://ftp.kde.org/pub/kde/%{stable}/applications/%{version}/src/%{name}-%{version}.tar.xz
+Source0:	http://download.kde.org/%{stable}/applications/%{version}/src/%{name}-%{version}.tar.xz
 BuildRequires:	cmake(ECM)
 BuildRequires:	pkgconfig(openal)
 BuildRequires:	cmake(KF5CoreAddons)
@@ -35,8 +35,6 @@ BuildRequires:	cmake(KF5KIO)
 BuildRequires:	cmake(KF5NewStuff)
 BuildRequires:	cmake(KF5KDELibs4Support)
 BuildRequires:	pkgconfig(sndfile)
-BuildRequires:	cmake
-BuildRequires:	ninja
 
 %description
 This packages provides common code and data for many KDE games.
@@ -128,10 +126,10 @@ Headers files needed to build applications based on KDE games library.
 
 %prep
 %setup -q
+%cmak_kde5
 
 %build
-%cmake -G Ninja
-ninja
+%ninja -C build
 
 %install
-DESTDIR="%buildroot" ninja -C build install
+%ninja_install -C build
