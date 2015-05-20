@@ -126,7 +126,7 @@ Headers files needed to build applications based on KDE games library.
 
 %prep
 %setup -q
-%cmak_kde5
+%cmake_kde5
 
 %build
 %ninja -C build
