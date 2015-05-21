@@ -65,7 +65,7 @@ Group:		Graphical desktop/KDE
 Qml plugins for KDE games.
 
 %files corebindings
-%{_libdir}/qml/org/kde/games
+%{_libdir}/qt5/qml/org/kde/games
 
 #-------------------------------------------------------------------------------
 
