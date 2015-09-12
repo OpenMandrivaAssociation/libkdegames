@@ -2,7 +2,7 @@
 Summary:	KDE games library
 Name:		libkdegames
 Version:	15.08.0
-Release:	1
+Release:	2
 Epoch:		1
 Group:		Graphical desktop/KDE
 License:	GPLv2 and LGPLv2 and GFDL
