@@ -34,6 +34,8 @@ BuildRequires:	cmake(KF5Bookmarks)
 BuildRequires:	cmake(KF5KIO)
 BuildRequires:	cmake(KF5NewStuff)
 BuildRequires:	cmake(KF5KDELibs4Support)
+BuildRequires:	cmake(Qt5QuickWidgets)
+BuildRequires:	cmake(Qt5Test)
 BuildRequires:	pkgconfig(sndfile)
 
 %description
