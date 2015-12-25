@@ -71,7 +71,7 @@ Qml plugins for KDE games.
 
 #-------------------------------------------------------------------------------
 
-%define KF5KDEGames_major 6
+%define KF5KDEGames_major 7
 %define libKF5KDEGames %mklibname KF5KDEGames %{KF5KDEGames_major}
 
 %package -n %{libKF5KDEGames}
