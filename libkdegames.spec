@@ -1,3 +1,4 @@
+
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 Summary:	KDE games library
 Name:		libkdegames
@@ -110,17 +111,21 @@ Runtime Library for KDE games.
 
 #-------------------------------------------------------------------------------
 
-%package devel
+%define devname %mklibname KF5KDEGames -d
+
+%package -n %{devname}
 Summary:	Headers files for KDE games library
 Group:		Development/KDE and Qt
 Obsoletes:	kdegames4-devel < 1:4.9.80
 Requires:	%{libKF5KDEGames} = %{EVRD}
 Requires:	%{libKF5KDEGamesPrivate} = %{EVRD}
+Obsoletes:	libkdegames-devel < 1:15.12.0-2
+Provides:	libkdegames-devel = 1:15.12.0-2
 
-%description devel
+%description -n %{devname}
 Headers files needed to build applications based on KDE games library.
 
-%files devel
+%files -n %{devname}
 %{_libdir}/cmake/KF5KDEGames
 %{_libdir}/libKF5KDEGamesPrivate.so
 %{_libdir}/libKF5KDEGames.so
