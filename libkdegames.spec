@@ -2,7 +2,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 Summary:	KDE games library
 Name:		libkdegames
-Version:	17.03.80
+Version:	17.04.0
 Release:	1
 Epoch:		1
 Group:		Graphical desktop/KDE
@@ -54,7 +54,7 @@ Obsoletes:	kdegames4-core < 1:4.9.80
 This package provides common files needed by KDE games such as carddecks
 for KDE cardgames.
 
-%files common
+%files common -f libkdegames5.lang
 %{_datadir}/carddecks/
 %{_datadir}/kconf_update/kgthemeprovider-migration.upd
 
@@ -142,3 +142,4 @@ Headers files needed to build applications based on KDE games library.
 
 %install
 %ninja_install -C build
+%find_lang libkdegames5
