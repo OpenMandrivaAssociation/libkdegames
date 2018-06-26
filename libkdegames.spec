@@ -2,7 +2,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 Summary:	KDE games library
 Name:		libkdegames
-Version:	 18.04.2
+Version:	18.04.2
 Release:	1
 Epoch:		1
 Group:		Graphical desktop/KDE
@@ -35,9 +35,14 @@ BuildRequires:	cmake(KF5Bookmarks)
 BuildRequires:	cmake(KF5KIO)
 BuildRequires:	cmake(KF5NewStuff)
 BuildRequires:	cmake(KF5KDELibs4Support)
-BuildRequires:	cmake(Qt5QuickWidgets)
+BuildRequires:	cmake(Qt5Svg)
 BuildRequires:	cmake(Qt5Test)
 BuildRequires:	pkgconfig(sndfile)
+BuildRequires:	cmake(Qt5Widgets)
+BuildRequires:	cmake(Qt5Qml)
+BuildRequires:	cmake(Qt5Quick)
+BuildRequires:	cmake(Qt5QuickWidgets)
+BuildRequires:	cmake(OpenAL)
 
 %description
 This packages provides common code and data for many KDE games.
