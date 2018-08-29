@@ -2,7 +2,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 Summary:	KDE games library
 Name:		libkdegames
-Version:	18.07.90
+Version:	18.08.0
 Release:	1
 Epoch:		1
 Group:		Graphical desktop/KDE
