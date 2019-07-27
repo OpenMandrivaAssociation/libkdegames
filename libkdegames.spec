@@ -1,7 +1,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 70 ] && echo -n un; echo -n stable)
 Summary:	KDE games library
 Name:		libkdegames
-Version:	19.04.3
+Version:	19.07.80
 Release:	1
 Epoch:		1
 Group:		Graphical desktop/KDE
@@ -59,7 +59,7 @@ This package provides common files needed by KDE games such as carddecks
 for KDE cardgames.
 
 %files common -f libkdegames5.lang
-%{_sysconfdir}/xdg/libkdegames.categories
+%{_datadir}/qlogging-categories5/libkdegames.categories
 %{_datadir}/carddecks/
 %{_datadir}/kconf_update/kgthemeprovider-migration.upd
 
