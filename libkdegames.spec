@@ -1,7 +1,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 70 ] && echo -n un; echo -n stable)
 Summary:	KDE games library
 Name:		libkdegames
-Version:	20.12.3
+Version:	21.03.80
 Release:	1
 Epoch:		1
 Group:		Graphical desktop/KDE
@@ -99,8 +99,8 @@ Runtime Library for KDE games.
 
 #-------------------------------------------------------------------------------
 
-%define KF5KDEGamesPrivate_major 1
-%define libKF5KDEGamesPrivate %mklibname KF5KDEGamesPrivate 1
+%define KF5KDEGamesPrivate_major 7
+%define libKF5KDEGamesPrivate %mklibname KF5KDEGamesPrivate %{KF5KDEGamesPrivate_major}
 
 %package -n %{libKF5KDEGamesPrivate}
 Summary:	Runtime Library for KDE games
