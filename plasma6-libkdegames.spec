@@ -1,12 +1,19 @@
+%define git 20240217
+%define gitbranch release/24.02
+%define gitbranchd %(echo %{gitbranch} |sed -e "s,/,-,g")
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 70 ] && echo -n un; echo -n stable)
 Summary:	KDE games library
 Name:		plasma6-libkdegames
-Version:	24.01.95
-Release:	1
+Version:	24.01.96
+Release:	%{?git:0.%{git}.}1
 Group:		Graphical desktop/KDE
 License:	GPLv2 and LGPLv2 and GFDL
 Url:		http://games.kde.org/
+%if 0%{?git:1}
+Source0:	https://invent.kde.org/games/libkdegames/-/archive/%{gitbranch}/libkdegames-%{gitbranchd}.tar.bz2#/libkdegames-%{git}.tar.bz2
+%else
 Source0:	http://download.kde.org/%{stable}/release-service/%{version}/src/libkdegames-%{version}.tar.xz
+%endif
 BuildRequires:	cmake(ECM)
 BuildRequires:	pkgconfig(openal)
 BuildRequires:	cmake(KF6CoreAddons)
@@ -123,7 +130,7 @@ Headers files needed to build applications based on KDE games library.
 #------------------------------------------------------------------------------
 
 %prep
-%autosetup -p1 -n libkdegames-%{version}
+%autosetup -p1 -n libkdegames-%{?git:%{gitbranchd}}%{!?git:%{version}}
 %cmake \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON \
 	-G Ninja
