@@ -4,7 +4,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 70 ] && echo -n un; echo -n stable)
 Summary:	KDE games library
 Name:		libkdegames
-Version:	25.04.0
+Version:	25.04.3
 Release:	%{?git:0.%{git}.}1
 Group:		Graphical desktop/KDE
 License:	GPLv2 and LGPLv2 and GFDL
@@ -48,6 +48,11 @@ BuildRequires:	cmake(Qt6Quick)
 BuildRequires:	cmake(Qt6QuickWidgets)
 BuildRequires:	cmake(OpenAL)
 
+%rename plasma6-libkdegames
+
+BuildSystem:	cmake
+BuildOption:	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
+
 %description
 This packages provides common code and data for many KDE games.
 
@@ -58,11 +63,13 @@ Summary:	Common files needed by KDE games
 Group:		Graphical desktop/KDE
 BuildArch:	noarch
 
+%rename plasma6-libkdegames-common
+
 %description common
 This package provides common files needed by KDE games such as carddecks
 for KDE cardgames.
 
-%files common -f libkdegames6.lang
+%files common -f %{name}.lang
 %{_datadir}/qlogging-categories6/libkdegames.categories
 %{_datadir}/carddecks/
 
@@ -71,6 +78,8 @@ for KDE cardgames.
 %package corebindings
 Summary:	Qml plugins for KDE games
 Group:		Graphical desktop/KDE
+
+%rename plasma6-libkdegames-corebindings
 
 %description corebindings
 Qml plugins for KDE games.
@@ -126,18 +135,3 @@ Headers files needed to build applications based on KDE games library.
 %{_libdir}/libKDEGames6Private.so
 %{_libdir}/libKDEGames6.so
 %{_includedir}/*
-
-#------------------------------------------------------------------------------
-
-%prep
-%autosetup -p1 -n libkdegames-%{?git:%{gitbranchd}}%{!?git:%{version}}
-%cmake \
-	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON \
-	-G Ninja
-
-%build
-%ninja -C build
-
-%install
-%ninja_install -C build
-%find_lang libkdegames6
