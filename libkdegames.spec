@@ -5,7 +5,7 @@
 Summary:	KDE games library
 Name:		libkdegames
 Version:	26.08.1
-Release:	%{?git:0.%{git}.}1
+Release:	%{?git:0.%{git}.}2
 Group:		Graphical desktop/KDE
 License:	GPLv2 and LGPLv2 and GFDL
 Url:		https://games.kde.org/
